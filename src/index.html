@@ -38,7 +38,26 @@
           id="bg"
         ></textarea>
       </label>
-      <table class="bit-table w-100">
+      <label class="bit-field">
+        <input
+          class="bit-radio"
+          type="radio"
+          name="group-by"
+          value="foreground"
+        />
+        <span>Group by foreground</span>
+      </label>
+      <label class="bit-field">
+        <input
+          class="bit-radio"
+          type="radio"
+          name="group-by"
+          value="background"
+          checked
+        />
+        <span>Group by background</span>
+      </label>
+      <table class="bit-table w-100 mt3">
         <thead>
           <tr>
             <th>WCAG Level</th>
