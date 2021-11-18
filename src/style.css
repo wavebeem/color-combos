@@ -1,0 +1,32 @@
+body {
+  display: grid;
+}
+
+@media (min-width: 1024px) {
+  body {
+    grid-template-columns: max-content 1fr;
+  }
+
+  main {
+    position: sticky;
+    top: 0;
+  }
+}
+
+.bit-auto,
+.bit-root {
+  --bit-color0: #333;
+  --bit-color1: #fafafa;
+}
+
+@media (prefers-color-scheme: dark) {
+  .bit-auto,
+  .bit-root {
+    --bit-color0: #ccc;
+    --bit-color1: #222;
+  }
+}
+
+.resize-v {
+  resize: vertical;
+}

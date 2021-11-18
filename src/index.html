@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" class="bit-root bit-scrollbar sans-serif overflow-y-scroll">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="lib/1bit-ui.css" />
+    <link rel="stylesheet" href="lib/tachyons.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="lib/tinycolor2.js"></script>
+    <script type="module" src="main.js"></script>
+    <title>CSS Color Contrast Checker</title>
+  </head>
+  <body class="center min-vh-100 lh-copy">
+    <main class="flex-auto pa3 self-start">
+      <h1 class="lh-title mt3 mb0">CSS Color Contrast Checker</h1>
+      <p class="mt1">
+        &copy; 2021
+        <a href="https://www.wavebeem.com" class="bit-link">Brian Mock</a>
+      </p>
+      <p>
+        Type CSS color values and see all their combinations and color contrast
+        values.
+      </p>
+      <label class="mb3 db">
+        <div class="pb1">Foreground colors (one per line)</div>
+        <textarea
+          class="bit-input w-100 resize-v code"
+          type="text"
+          id="fg"
+        ></textarea>
+      </label>
+      <label class="mb3 db">
+        <div class="pb1">Background colors (one per line)</div>
+        <textarea
+          class="bit-input w-100 resize-v code"
+          type="text"
+          id="bg"
+        ></textarea>
+      </label>
+      <table class="bit-table w-100">
+        <thead>
+          <tr>
+            <th>WCAG Level</th>
+            <th>AA</th>
+            <th>AAA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Text</th>
+            <td>4.5</td>
+            <td>7</td>
+          </tr>
+          <tr>
+            <th>Borders</th>
+            <td>3</td>
+            <td>4.5</td>
+          </tr>
+          <tr>
+            <th>Large text</th>
+            <td>3</td>
+            <td>4.5</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+    <aside class="pt3">
+      <h2 class="lh-title ma3">Preview</h2>
+      <div id="preview-container"></div>
+    </aside>
+    <template id="preview-template">
+      <div class="flex flex-column pa3">
+        <div class="ba pa3">
+          <h3><span data-name="contrast"></span> contrast</h3>
+          <p>
+            In visual perception a color is almost never seen as it really is –
+            as it physically is. This fact makes color the most relative medium
+            in art. - Josef Albers
+          </p>
+          <pre class="ma0">fg: <span data-name="fg"></span></pre>
+          <pre class="ma0">bg: <span data-name="bg"></span></pre>
+        </div>
+      </div>
+    </template>
+  </body>
+</html>
