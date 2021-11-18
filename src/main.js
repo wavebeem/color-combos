@@ -1,18 +1,17 @@
-function $(selector, root = document) {
-  return root.querySelector(selector);
-}
-
-function $$(selector, root = document) {
-  return [...root.querySelectorAll(selector)];
-}
-
+// This is all a big nasty mess without a JS framework, lol
 function update() {
+  console.log(Date());
   resize($("#fg"));
   resize($("#bg"));
   const groupBy = $("[name=group-by]:checked").value;
   const fgs = $("#fg").value;
   const bgs = $("#bg").value;
   const container = $("#preview-container");
+  const url = new URL(location.href);
+  url.searchParams.set("fg", fgs);
+  url.searchParams.set("bg", bgs);
+  url.searchParams.set("group_by", groupBy);
+  history.replaceState(null, "", url.href);
   container.innerHTML = "";
   for (const { fg, bg } of getCombinations({ fgs, bgs, groupBy })) {
     const contrast = tinycolor.readability(fg, bg);
@@ -27,6 +26,30 @@ function update() {
     $("[data-name=contrast]", node).textContent = contrast.toFixed(1);
     container.appendChild(node);
   }
+}
+
+// Remember manually syncing the UI with data? Haha, good times
+function load() {
+  const {
+    fg = "",
+    bg = "",
+    group_by = "background",
+  } = Object.fromEntries(Array.from(new URLSearchParams(location.search)));
+  console.log({ fg, bg, group_by });
+  $("#fg").value = fg;
+  $("#bg").value = bg;
+  for (const radio of $$("[name=group-by]")) {
+    radio.checked = radio.value === group_by;
+  }
+  update();
+}
+
+function $(selector, root = document) {
+  return root.querySelector(selector);
+}
+
+function $$(selector, root = document) {
+  return [...root.querySelectorAll(selector)];
 }
 
 function split(str) {
@@ -58,8 +81,9 @@ function resize(textarea) {
   textarea.rows = rows;
 }
 
-for (const element of $$("input")) {
+for (const element of $$("input, textarea")) {
   element.addEventListener("input", update);
   element.addEventListener("checked", update);
 }
-update();
+
+load();

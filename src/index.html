@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="bit-root bit-scrollbar sans-serif">
+<html lang="en" class="bit-root bit-scrollbar sans-serif h-100">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -11,7 +11,7 @@
     <script type="module" src="main.js"></script>
     <title>CSS Color Contrast Checker</title>
   </head>
-  <body class="center lh-copy">
+  <body class="center lh-copy h-100">
     <main class="flex-auto pa3">
       <h1 class="lh-title mt3 mb0">CSS Color Contrast Checker</h1>
       <p class="mt1">
@@ -90,16 +90,14 @@
     </aside>
     <template id="preview-template">
       <div class="flex flex-column pa3">
-        <div class="ba pa3">
-          <h3><span data-name="contrast"></span> contrast</h3>
-          <p>
+        <h3 class="mv0"><span data-name="contrast"></span> contrast</h3>
+          <p role="presentation" class="pa3 ba">
             In visual perception a color is almost never seen as it really is –
             as it physically is. This fact makes color the most relative medium
             in art. - Josef Albers
           </p>
-          <pre class="ma0">fg: <span data-name="fg"></span></pre>
-          <pre class="ma0">bg: <span data-name="bg"></span></pre>
-        </div>
+        <pre class="ma0">fg: <span data-name="fg"></span></pre>
+        <pre class="ma0">bg: <span data-name="bg"></span></pre>
       </div>
     </template>
   </body>
