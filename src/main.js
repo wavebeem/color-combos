@@ -1,6 +1,5 @@
 // This is all a big nasty mess without a JS framework, lol
 function update() {
-  console.log(Date());
   resize($("#fg"));
   resize($("#bg"));
   const groupBy = $("[name=group-by]:checked").value;
@@ -14,7 +13,7 @@ function update() {
   history.replaceState(null, "", url.href);
   container.innerHTML = "";
   for (const { fg, bg } of getCombinations({ fgs, bgs, groupBy })) {
-    const contrast = tinycolor.readability(fg, bg);
+    const contrast = getContrast({ fg, bg });
     const template = $("#preview-template");
     const frag = template.content.cloneNode(true);
     const node = document.createElement("div");
@@ -35,13 +34,32 @@ function load() {
     bg = "",
     group_by = "background",
   } = Object.fromEntries(Array.from(new URLSearchParams(location.search)));
-  console.log({ fg, bg, group_by });
   $("#fg").value = fg;
   $("#bg").value = bg;
   for (const radio of $$("[name=group-by]")) {
     radio.checked = radio.value === group_by;
   }
   update();
+}
+
+// tinycolor doesn't properly support color blending, and even when you hack it
+// together, the results are just slightly inaccurate. Anything less than
+// perfection is unacceptable for this. So let's actually blend the colors
+// together on a canvas element and measure them.
+const canvas = document.createElement("canvas");
+const ctx = canvas.getContext("2d");
+canvas.width = 1;
+canvas.height = 1;
+function getContrast({ fg, bg }) {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = bg;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = fg;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  const { data } = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  // Big array of [r,g,b,a,r,g,b,a] values, but we only need the first pixel
+  const [r, g, b] = data;
+  return tinycolor.readability(bg, { r, g, b });
 }
 
 function $(selector, root = document) {
@@ -77,7 +95,7 @@ function* getCombinations({ fgs, bgs, groupBy }) {
 
 function resize(textarea) {
   const value = textarea.value.split(/\n/).length;
-  const rows = Math.max(4, value + 1);
+  const rows = Math.max(4, value);
   textarea.rows = rows;
 }
 

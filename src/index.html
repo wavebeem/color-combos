@@ -20,12 +20,14 @@
       </p>
       <p>
         Type CSS color values and see all their combinations and color contrast
-        values.
+        values. Supports most CSS color formats.
       </p>
+      <hr class="bit-hr mv3" role="presentation" />
       <label class="mb3 db">
         <div class="pb1">Foreground colors (one per line)</div>
         <textarea
-          class="bit-input w-100 resize-v code"
+          spellcheck="false"
+          class="bit-input w-100 resize-none code"
           type="text"
           id="fg"
         ></textarea>
@@ -33,7 +35,8 @@
       <label class="mb3 db">
         <div class="pb1">Background colors (one per line)</div>
         <textarea
-          class="bit-input w-100 resize-v code"
+          spellcheck="false"
+          class="bit-input w-100 resize-none code"
           type="text"
           id="bg"
         ></textarea>
@@ -57,6 +60,7 @@
         />
         <span>Group by background</span>
       </label>
+      <hr class="bit-hr mv3" role="presentation" />
       <table class="bit-table w-100 mt3">
         <thead>
           <tr>
@@ -90,14 +94,16 @@
     </aside>
     <template id="preview-template">
       <div class="flex flex-column pa3">
-        <h3 class="mv0"><span data-name="contrast"></span> contrast</h3>
-          <p role="presentation" class="pa3 ba">
+        <h3 class="mt0 mb2"><span data-name="contrast"></span> contrast ratio</h3>
+        <div class="pa3 ba">
+          <p role="presentation" class="mt0 mb3">
             In visual perception a color is almost never seen as it really is –
             as it physically is. This fact makes color the most relative medium
             in art. - Josef Albers
           </p>
-        <pre class="ma0">fg: <span data-name="fg"></span></pre>
-        <pre class="ma0">bg: <span data-name="bg"></span></pre>
+          <pre class="ma0">fg: <span data-name="fg"></span></pre>
+          <pre class="ma0">bg: <span data-name="bg"></span></pre>
+        </div>
       </div>
     </template>
   </body>

@@ -29,6 +29,6 @@ body {
   }
 }
 
-.resize-v {
-  resize: vertical;
+.resize-none {
+  resize: none;
 }
