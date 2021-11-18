@@ -4,12 +4,14 @@ body {
 
 @media (min-width: 1024px) {
   body {
-    grid-template-columns: max-content 1fr;
+    grid-template-columns: 500px 1fr;
+    grid-template-rows: 1fr;
+    max-height: 100vh;
   }
 
-  main {
-    position: sticky;
-    top: 0;
+  main,
+  aside {
+    overflow-y: scroll;
   }
 }
 
