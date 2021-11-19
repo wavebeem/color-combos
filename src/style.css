@@ -9,6 +9,10 @@ body {
     max-height: 100vh;
   }
 
+  main {
+    border-right: 2px solid;
+  }
+
   main,
   aside {
     overflow-y: scroll;
