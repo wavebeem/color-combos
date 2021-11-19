@@ -1,3 +1,5 @@
+const html = String.raw;
+
 // This is all a big nasty mess without a JS framework, lol
 function update() {
   resize($("#fg"));
@@ -11,8 +13,17 @@ function update() {
   url.searchParams.set("bg", bgs);
   url.searchParams.set("group_by", groupBy);
   history.replaceState(null, "", url.href);
-  container.innerHTML = "";
-  for (const { fg, bg } of getCombinations({ fgs, bgs, groupBy })) {
+  container.innerHTML = html`
+    <p class="mh3 bit-card">
+      <span role="presentation">&larr;</span> Enter at least one foreground
+      color and background color to continue
+    </p>
+  `;
+  const combos = Array.from(getCombinations({ fgs, bgs, groupBy }));
+  if (combos.length > 0) {
+    container.innerHTML = "";
+  }
+  for (const { fg, bg } of combos) {
     const contrast = getContrast({ fg, bg });
     const template = $("#preview-template");
     const frag = template.content.cloneNode(true);
