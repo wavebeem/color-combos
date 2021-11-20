@@ -26,28 +26,16 @@ body {
 
 .bit-auto,
 .bit-root {
-  --bit-color0: #333;
-  --bit-color1: #fafafa;
+  --bit-color0: #444;
+  --bit-color1: #eee;
 }
 
 @media (prefers-color-scheme: dark) {
   .bit-auto,
   .bit-root {
-    --bit-color0: #ccc;
+    --bit-color0: #bbb;
     --bit-color1: #222;
   }
-}
-
-fieldset {
-  border: var(--bit-border-width) solid var(--bit-color0);
-  padding: 1rem;
-  padding-top: 0.5rem;
-  margin: 0;
-}
-
-legend {
-  padding: 0 0.5rem;
-  margin: 0;
 }
 
 .resize-none {
