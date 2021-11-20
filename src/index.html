@@ -13,7 +13,7 @@
   </head>
   <body class="center lh-copy min-vh-100">
     <main class="flex-auto pa3">
-      <h1 class="lh-title ma0">CSS Color Contrast Checker</h1>
+      <h1 class="lh-title ma0 f3">CSS Color Contrast Checker</h1>
       <p class="nt1">
         &copy; 2021
         <a href="https://www.wavebeem.com" class="bit-link">Brian Mock</a>
@@ -23,43 +23,48 @@
         values. Supports most CSS color formats.
       </p>
       <hr class="bit-hr mv3" role="presentation" />
-      <label class="mb3 db">
-        <div class="pb1">Foreground colors (one per line)</div>
-        <textarea
-          spellcheck="false"
-          class="bit-input w-100 resize-none code"
-          type="text"
-          id="fg"
-        ></textarea>
-      </label>
-      <label class="mb3 db">
-        <div class="pb1">Background colors (one per line)</div>
-        <textarea
-          spellcheck="false"
-          class="bit-input w-100 resize-none code"
-          type="text"
-          id="bg"
-        ></textarea>
-      </label>
-      <label class="bit-field">
-        <input
-          class="bit-radio"
-          type="radio"
-          name="group-by"
-          value="foreground"
-        />
-        <span>Group by foreground</span>
-      </label>
-      <label class="bit-field">
-        <input
-          class="bit-radio"
-          type="radio"
-          name="group-by"
-          value="background"
-          checked
-        />
-        <span>Group by background</span>
-      </label>
+      <form action="" id="form">
+        <label class="mb3 db">
+          <div class="pb1">Foreground colors (one per line)</div>
+          <textarea
+            spellcheck="false"
+            class="bit-input w-100 resize-none code"
+            type="text"
+            id="fg"
+          ></textarea>
+        </label>
+        <label class="mb3 db">
+          <div class="pb1">Background colors (one per line)</div>
+          <textarea
+            spellcheck="false"
+            class="bit-input w-100 resize-none code"
+            type="text"
+            id="bg"
+          ></textarea>
+        </label>
+        <fieldset>
+          <legend>Grouping</legend>
+          <label class="bit-field">
+            <input
+              class="bit-radio"
+              type="radio"
+              name="group-by"
+              value="foreground"
+            />
+            <span>Group by foreground</span>
+          </label>
+          <label class="bit-field">
+            <input
+              class="bit-radio"
+              type="radio"
+              name="group-by"
+              value="background"
+              checked
+            />
+            <span>Group by background</span>
+          </label>
+        </fieldset>
+      </form>
       <hr class="bit-hr mv3" role="presentation" />
       <table class="bit-table w-100 mt3">
         <thead>
@@ -89,12 +94,14 @@
       </table>
     </main>
     <aside>
-      <h2 class="lh-title ma3">Color Combinations</h2>
+      <h2 class="lh-title ma3 f4">Color Combinations</h2>
       <div id="preview-container" class="bt bw1"></div>
     </aside>
     <template id="preview-template">
       <div class="flex flex-column pa3">
-        <h3 class="mt0 mb2"><span data-name="contrast"></span> contrast ratio</h3>
+        <h3 class="mt0 mb2">
+          <span data-name="contrast"></span> contrast ratio
+        </h3>
         <div class="pa3 ba">
           <p role="presentation" class="mt0 mb3">
             In visual perception a color is almost never seen as it really is –

@@ -2,7 +2,7 @@ body {
   display: grid;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 60rem) {
   body {
     grid-template-columns: 500px 1fr;
     grid-template-rows: 1fr;
@@ -10,12 +10,17 @@ body {
   }
 
   main {
-    border-right: 2px solid;
+    border-right: var(--bit-border-width) solid var(--bit-color0);
   }
 
   main,
   aside {
     overflow-y: scroll;
+  }
+
+  .arrow-ul {
+    display: inline-block;
+    transform: rotate(-90deg);
   }
 }
 
@@ -33,6 +38,22 @@ body {
   }
 }
 
+fieldset {
+  border: var(--bit-border-width) solid var(--bit-color0);
+  padding: 1rem;
+  padding-top: 0.5rem;
+  margin: 0;
+}
+
+legend {
+  padding: 0 0.5rem;
+  margin: 0;
+}
+
 .resize-none {
   resize: none;
+}
+
+.arrow-ul {
+  font-weight: bold;
 }

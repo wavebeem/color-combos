@@ -15,8 +15,8 @@ function update() {
   history.replaceState(null, "", url.href);
   container.innerHTML = html`
     <p class="mh3 bit-card">
-      <span role="presentation">&larr;</span> Enter at least one foreground
-      color and background color to continue
+      <span role="presentation" class="arrow-ul">&uarr;</span> Enter at least
+      one foreground color and background color to continue
     </p>
   `;
   const combos = Array.from(getCombinations({ fgs, bgs, groupBy }));
@@ -114,5 +114,9 @@ for (const element of $$("input, textarea")) {
   element.addEventListener("input", update);
   element.addEventListener("checked", update);
 }
+
+$("#form").addEventListener("submit", (event) => {
+  event.preventDefault();
+});
 
 load();
