@@ -3,6 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      http-equiv="content-security-policy"
+      content="
+        default-src 'self' https://plausible.io;
+        img-src 'self' https://plausible.io;
+        script-src 'self' https://plausible.io
+      "
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="lib/1bit-ui.css" />
     <link rel="stylesheet" href="lib/tachyons.css" />
@@ -19,15 +27,19 @@
   <body class="center lh-copy min-vh-100">
     <main class="flex-auto pa3">
       <h1 class="lh-title ma0 f3">CSS Color Contrast Checker</h1>
+
       <p class="nt1">
-        &copy; 2021
+        &copy; 2022
         <a href="https://www.wavebeem.com" class="bit-link">Brian Mock</a>
       </p>
+
       <p>
         Type CSS color values and see all their combinations and color contrast
         values. Supports most CSS color formats.
       </p>
+
       <hr class="bit-hr mv3" role="presentation" />
+
       <form action="" id="form">
         <label class="mb3 db">
           <div class="pb1">Foreground colors (one per line)</div>
@@ -38,6 +50,7 @@
             id="fg"
           ></textarea>
         </label>
+
         <label class="mb3 db">
           <div class="pb1">Background colors (one per line)</div>
           <textarea
@@ -47,8 +60,10 @@
             id="bg"
           ></textarea>
         </label>
+
         <fieldset class="bit-fieldset">
           <legend class="bit-legend">Grouping</legend>
+
           <label class="bit-field">
             <input
               class="bit-radio"
@@ -58,6 +73,7 @@
             />
             <span>Group by foreground</span>
           </label>
+
           <label class="bit-field">
             <input
               class="bit-radio"
@@ -70,7 +86,9 @@
           </label>
         </fieldset>
       </form>
+
       <hr class="bit-hr mv3" role="presentation" />
+
       <table class="bit-table w-100 mt3">
         <thead>
           <tr>
@@ -85,11 +103,13 @@
             <td>4.5</td>
             <td>7</td>
           </tr>
+
           <tr>
             <th>Borders</th>
             <td>3</td>
             <td>4.5</td>
           </tr>
+
           <tr>
             <th>Large text</th>
             <td>3</td>
@@ -98,10 +118,12 @@
         </tbody>
       </table>
     </main>
+
     <aside>
       <h2 class="lh-title ma3 f4">Color Combinations</h2>
       <div id="preview-container" class="bt bw1"></div>
     </aside>
+
     <template id="preview-template">
       <div class="flex flex-column pa3">
         <h3 class="mt0 mb2">

@@ -44,13 +44,25 @@ function load() {
     fg = "",
     bg = "",
     group_by = "background",
-  } = Object.fromEntries(Array.from(new URLSearchParams(location.search)));
+  } = parseQueryString(location.search);
   $("#fg").value = fg;
   $("#bg").value = bg;
   for (const radio of $$("[name=group-by]")) {
     radio.checked = radio.value === group_by;
   }
   update();
+}
+
+function parseQueryString(query) {
+  return Object.fromEntries(Array.from(new URLSearchParams(query)));
+}
+
+function getContrast({ fg, bg }) {
+  const isDarkMode = matchMedia("(prefers-color-scheme: dark)").matches;
+  const pageBG = isDarkMode ? "#000" : "#fff";
+  const computedBG = colorToRGB({ fg: bg, bg: pageBG });
+  const computedFG = colorToRGB({ fg, bg: computedBG });
+  return tinycolor.readability(computedBG, computedFG);
 }
 
 // tinycolor doesn't properly support color blending, and even when you hack it
@@ -61,7 +73,7 @@ const canvas = document.createElement("canvas");
 const ctx = canvas.getContext("2d");
 canvas.width = 1;
 canvas.height = 1;
-function getContrast({ fg, bg }) {
+function colorToRGB({ fg, bg }) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = bg;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -70,7 +82,7 @@ function getContrast({ fg, bg }) {
   const { data } = ctx.getImageData(0, 0, canvas.width, canvas.height);
   // Big array of [r,g,b,a,r,g,b,a] values, but we only need the first pixel
   const [r, g, b] = data;
-  return tinycolor.readability(bg, { r, g, b });
+  return { r, g, b };
 }
 
 function $(selector, root = document) {
