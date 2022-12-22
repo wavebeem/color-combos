@@ -10,7 +10,7 @@ body {
   }
 
   main {
-    border-right: var(--bit-border-width) solid var(--bit-color0);
+    border-right: 1px solid var(--bit-color-shadow);
   }
 
   main,
@@ -26,16 +26,19 @@ body {
 
 .bit-auto,
 .bit-root {
-  --bit-color0: #444;
-  --bit-color1: #eee;
+  --bit-color-fg: #ccc;
+  --bit-color-accent: #fff;
+  --bit-color-shadow: #555;
+  --bit-color-bg: #444;
+  color-scheme: dark;
 }
 
-@media (prefers-color-scheme: dark) {
-  .bit-auto,
-  .bit-root {
-    --bit-color0: #bbb;
-    --bit-color1: #222;
-  }
+* {
+  overscroll-behavior: contain;
+}
+
+.b--bit-shadow {
+  border-color: var(--bit-color-shadow);
 }
 
 .resize-none {
