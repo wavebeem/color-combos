@@ -1,6 +1,5 @@
 // https://developers.google.com/web/fundamentals/web-components/best-practices
 
-import { getContrast } from "../colors.js";
 import { split, getCombinations } from "../util.js";
 
 class HTMLCcFormOutputElement extends HTMLElement {
@@ -17,10 +16,6 @@ class HTMLCcFormOutputElement extends HTMLElement {
     return document
       .querySelector("#preview-empty-template")
       .content.cloneNode(true);
-  }
-
-  get #template() {
-    return document.querySelector("#preview-template").content.cloneNode(true);
   }
 
   get foregrounds() {
@@ -53,17 +48,10 @@ class HTMLCcFormOutputElement extends HTMLElement {
       return;
     }
     for (const { fg, bg } of combos) {
-      const contrast = getContrast({ fg, bg });
-      const node = document.createElement("div");
-      // TODO: Make a <cc-form-output-item> element
-      node.append(this.#template);
-      node.style.setProperty("color", fg);
-      node.style.setProperty("background", bg);
-      node.querySelector("[data-name=fg]").textContent = fg;
-      node.querySelector("[data-name=bg]").textContent = bg;
-      node.querySelector("[data-name=contrast]").textContent =
-        contrast.toFixed(1);
-      this.append(node);
+      const item = document.createElement("cc-form-output-item");
+      item.dataset.foreground = fg;
+      item.dataset.background = bg;
+      this.append(item);
     }
   }
 }

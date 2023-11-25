@@ -1,8 +1,14 @@
-export function getContrast({ fg, bg }) {
+export function getContrast({ foreground, background }) {
   const isDarkMode = matchMedia("(prefers-color-scheme: dark)").matches;
   const pageBG = isDarkMode ? "#000" : "#fff";
-  const computedBG = colorToRGB({ fg: bg, bg: pageBG });
-  const computedFG = colorToRGB({ fg, bg: computedBG });
+  const computedBG = colorToRGB({
+    foreground: background,
+    background: pageBG,
+  });
+  const computedFG = colorToRGB({
+    foreground: foreground,
+    background: computedBG,
+  });
   return tinycolor.readability(computedBG, computedFG);
 }
 
@@ -14,11 +20,11 @@ const canvas = document.createElement("canvas");
 const ctx = canvas.getContext("2d");
 canvas.width = 1;
 canvas.height = 1;
-function colorToRGB({ fg, bg }) {
+function colorToRGB({ foreground, background }) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = bg;
+  ctx.fillStyle = background;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = fg;
+  ctx.fillStyle = foreground;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   const { data } = ctx.getImageData(0, 0, canvas.width, canvas.height);
   // Big array of [r,g,b,a,r,g,b,a] values, but we only need the first pixel

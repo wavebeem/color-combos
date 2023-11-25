@@ -6,6 +6,17 @@ cc-textarea-resizer {
   display: contents;
 }
 
+cc-form,
+cc-form-output,
+cc-form-output-item {
+  display: block;
+}
+
+cc-form-output-item {
+  color: var(--foreground);
+  background: var(--background);
+}
+
 @media (min-width: 60rem) {
   body {
     grid-template-columns: 500px 1fr;
