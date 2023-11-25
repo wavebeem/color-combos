@@ -2,11 +2,16 @@ body {
   display: grid;
 }
 
+* {
+  box-sizing: border-box;
+  overscroll-behavior: contain;
+}
+
+cc-form,
 cc-textarea-resizer {
   display: contents;
 }
 
-cc-form,
 cc-form-output,
 cc-form-output-item {
   display: block;
@@ -44,12 +49,13 @@ cc-form-output-item {
   --bit-color-fg: #ccc;
   --bit-color-accent: #fff;
   --bit-color-shadow: #555;
-  --bit-color-bg: #444;
+  --bit-color-bg: #333;
+  --bit-border-radius: 4px;
   color-scheme: dark;
 }
 
-* {
-  overscroll-behavior: contain;
+.round {
+  border-radius: var(--bit-border-radius);
 }
 
 .b--bit-shadow {

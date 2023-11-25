@@ -25,23 +25,19 @@
       data-domain="color-combos.wavebeem.com"
       src="https://plausible.io/js/plausible.js"
     ></script>
-    <title>CSS Color Contrast Checker</title>
+    <title>Color Combos | wavebeem</title>
+    <meta name="og:title" content="Color Combos | wavebeem" />
+    <meta name="og:description" content="CSS color contrast checker" />
   </head>
   <body class="center lh-copy min-vh-100">
     <main class="flex-auto pa3">
-      <h1 class="lh-title ma0 f3">CSS Color Contrast Checker</h1>
+      <h1 class="lh-title ma0 f3">Color Combos</h1>
+      <p class="lh-title mt0 f5">CSS color contrast checker</p>
 
-      <p class="nt1">
-        &copy; 2023
-        <a href="https://www.wavebeem.com" class="bit-link">Sage Fennel</a>
-      </p>
-
-      <p>
+      <p class="bit-card">
         Type CSS color values and see all their combinations and color contrast
-        values. Supports most CSS color formats.
+        values. Supports all CSS color formats supported by your browser.
       </p>
-
-      <hr class="bit-hr mv3" role="presentation" />
 
       <cc-form>
         <form action="" id="form">
@@ -92,40 +88,49 @@
         </form>
       </cc-form>
 
-      <hr class="bit-hr mv3" role="presentation" />
+      <div class="bit-box mt3">
+        <table class="bit-table w-100">
+          <thead>
+            <tr>
+              <th>WCAG Level</th>
+              <th>AA</th>
+              <th>AAA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Text</th>
+              <td>4.5</td>
+              <td>7</td>
+            </tr>
 
-      <table class="bit-table w-100 mt3">
-        <thead>
-          <tr>
-            <th>WCAG Level</th>
-            <th>AA</th>
-            <th>AAA</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>Text</th>
-            <td>4.5</td>
-            <td>7</td>
-          </tr>
+            <tr>
+              <th>Borders</th>
+              <td>3</td>
+              <td>4.5</td>
+            </tr>
 
-          <tr>
-            <th>Borders</th>
-            <td>3</td>
-            <td>4.5</td>
-          </tr>
+            <tr>
+              <th>Large text</th>
+              <td>3</td>
+              <td>4.5</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-          <tr>
-            <th>Large text</th>
-            <td>3</td>
-            <td>4.5</td>
-          </tr>
-        </tbody>
-      </table>
+      <p class="bit-card">
+        &copy; 2023
+        <a href="https://www.wavebeem.com" class="bit-link">Sage Fennel</a>
+        &bull; Source on
+        <a href="https://github.com/wavebeem/color-combos" class="bit-link"
+          >GitHub</a
+        >
+      </p>
     </main>
 
     <aside>
-      <h2 class="lh-title ma3 f4">Color Combinations</h2>
+      <h2 class="lh-title ma3 f4">Results</h2>
       <div id="preview-container" class="bt b--bit-shadow">
         <cc-form-output></cc-form-output>
       </div>
@@ -143,14 +148,14 @@
         <h3 class="mt0 mb2">
           <span data-name="contrast"></span> contrast ratio
         </h3>
-        <div class="pa3 ba">
+        <div class="pa3 ba round">
           <p role="presentation" class="mt0 mb3">
-            In visual perception a color is almost never seen as it really is
-            &ndash; as it physically is. This fact makes color the most relative
-            medium in art. - Josef Albers
+            In visual perception a color is almost never seen as it really
+            is&mdash;as it physically is. This fact makes color the most
+            relative medium in art. &ndash; <i>Josef Albers</i>
           </p>
-          <pre class="ma0">fg: <span data-name="fg"></span></pre>
-          <pre class="ma0">bg: <span data-name="bg"></span></pre>
+          <pre class="ma0">foreground: <span data-name="fg"></span></pre>
+          <pre class="ma0">background: <span data-name="bg"></span></pre>
         </div>
       </div>
     </template>
