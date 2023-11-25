@@ -2,7 +2,6 @@
 <html lang="en" class="bit-root bit-scrollbar sans-serif min-vh-100">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta
       http-equiv="content-security-policy"
       content="
@@ -12,131 +11,150 @@
       "
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="lib/2bit-ui.css" />
-    <link rel="stylesheet" href="lib/tachyons.css" />
-    <link rel="stylesheet" href="style.css" />
-    <script defer src="lib/tinycolor2.js"></script>
-    <script type="module" src="main.js"></script>
+    <link rel="stylesheet" href="/lib/2bit-ui.css" />
+    <link rel="stylesheet" href="/lib/tachyons.css" />
+    <link rel="stylesheet" href="/style.css" />
+    <script defer src="/lib/tinycolor2.js"></script>
+    <script type="module" src="/elements/cc-form.js"></script>
+    <script type="module" src="/elements/cc-form-output.js"></script>
+    <script type="module" src="/elements/cc-form-output-item.js"></script>
+    <script type="module" src="/elements/cc-textarea-resizer.js"></script>
     <script
       defer
       data-domain="color-combos.wavebeem.com"
       src="https://plausible.io/js/plausible.js"
     ></script>
-    <title>CSS Color Contrast Checker</title>
+    <title>Color Combos | wavebeem</title>
+    <meta name="og:title" content="Color Combos | wavebeem" />
+    <meta name="og:description" content="CSS color contrast checker" />
   </head>
   <body class="center lh-copy min-vh-100">
     <main class="flex-auto pa3">
-      <h1 class="lh-title ma0 f3">CSS Color Contrast Checker</h1>
+      <h1 class="lh-title ma0 f3">Color Combos</h1>
+      <p class="lh-title mt0 f5">CSS color contrast checker</p>
 
-      <p class="nt1">
+      <p class="bit-card">
+        Type CSS color values and see all their combinations and color contrast
+        values. Supports all CSS color formats supported by your browser.
+      </p>
+
+      <cc-form>
+        <form action="" id="form">
+          <label class="mb3 db">
+            <div class="pb1">Foreground colors (one per line)</div>
+            <cc-textarea-resizer>
+              <textarea
+                spellcheck="false"
+                class="bit-input w-100 resize-none code"
+                type="text"
+                id="fg"
+              ></textarea>
+            </cc-textarea-resizer>
+          </label>
+          <label class="mb3 db">
+            <div class="pb1">Background colors (one per line)</div>
+            <cc-textarea-resizer>
+              <textarea
+                spellcheck="false"
+                class="bit-input w-100 resize-none code"
+                type="text"
+                id="bg"
+              ></textarea>
+            </cc-textarea-resizer>
+          </label>
+          <fieldset class="bit-fieldset">
+            <legend class="bit-legend">Grouping</legend>
+            <label class="bit-field">
+              <input
+                class="bit-radio"
+                type="radio"
+                name="group-by"
+                value="foreground"
+              />
+              <span>Group by foreground</span>
+            </label>
+            <label class="bit-field">
+              <input
+                class="bit-radio"
+                type="radio"
+                name="group-by"
+                value="background"
+                checked
+              />
+              <span>Group by background</span>
+            </label>
+          </fieldset>
+        </form>
+      </cc-form>
+
+      <div class="bit-box mt3">
+        <table class="bit-table w-100">
+          <thead>
+            <tr>
+              <th>WCAG Level</th>
+              <th>AA</th>
+              <th>AAA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Text</th>
+              <td>4.5</td>
+              <td>7</td>
+            </tr>
+
+            <tr>
+              <th>Borders</th>
+              <td>3</td>
+              <td>4.5</td>
+            </tr>
+
+            <tr>
+              <th>Large text</th>
+              <td>3</td>
+              <td>4.5</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="bit-card">
         &copy; 2023
         <a href="https://www.wavebeem.com" class="bit-link">Sage Fennel</a>
+        &bull; Source on
+        <a href="https://github.com/wavebeem/color-combos" class="bit-link"
+          >GitHub</a
+        >
       </p>
-
-      <p>
-        Type CSS color values and see all their combinations and color contrast
-        values. Supports most CSS color formats.
-      </p>
-
-      <hr class="bit-hr mv3" role="presentation" />
-
-      <form action="" id="form">
-        <label class="mb3 db">
-          <div class="pb1">Foreground colors (one per line)</div>
-          <textarea
-            spellcheck="false"
-            class="bit-input w-100 resize-none code"
-            type="text"
-            id="fg"
-          ></textarea>
-        </label>
-
-        <label class="mb3 db">
-          <div class="pb1">Background colors (one per line)</div>
-          <textarea
-            spellcheck="false"
-            class="bit-input w-100 resize-none code"
-            type="text"
-            id="bg"
-          ></textarea>
-        </label>
-
-        <fieldset class="bit-fieldset">
-          <legend class="bit-legend">Grouping</legend>
-
-          <label class="bit-field">
-            <input
-              class="bit-radio"
-              type="radio"
-              name="group-by"
-              value="foreground"
-            />
-            <span>Group by foreground</span>
-          </label>
-
-          <label class="bit-field">
-            <input
-              class="bit-radio"
-              type="radio"
-              name="group-by"
-              value="background"
-              checked
-            />
-            <span>Group by background</span>
-          </label>
-        </fieldset>
-      </form>
-
-      <hr class="bit-hr mv3" role="presentation" />
-
-      <table class="bit-table w-100 mt3">
-        <thead>
-          <tr>
-            <th>WCAG Level</th>
-            <th>AA</th>
-            <th>AAA</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>Text</th>
-            <td>4.5</td>
-            <td>7</td>
-          </tr>
-
-          <tr>
-            <th>Borders</th>
-            <td>3</td>
-            <td>4.5</td>
-          </tr>
-
-          <tr>
-            <th>Large text</th>
-            <td>3</td>
-            <td>4.5</td>
-          </tr>
-        </tbody>
-      </table>
     </main>
 
     <aside>
-      <h2 class="lh-title ma3 f4">Color Combinations</h2>
-      <div id="preview-container" class="bt b--bit-shadow"></div>
+      <h2 class="lh-title ma3 f4">Results</h2>
+      <div id="preview-container" class="bt b--bit-shadow">
+        <cc-form-output></cc-form-output>
+      </div>
     </aside>
+
+    <template id="preview-empty-template">
+      <p class="mh3 bit-card">
+        <span role="presentation" class="arrow-ul">&uarr;</span> Enter at least
+        one foreground color and background color to continue
+      </p>
+    </template>
 
     <template id="preview-template">
       <div class="flex flex-column pa3">
         <h3 class="mt0 mb2">
           <span data-name="contrast"></span> contrast ratio
         </h3>
-        <div class="pa3 ba">
+        <div class="pa3 ba round">
           <p role="presentation" class="mt0 mb3">
-            In visual perception a color is almost never seen as it really is –
-            as it physically is. This fact makes color the most relative medium
-            in art. - Josef Albers
+            In visual perception a color is almost never seen as it really
+            is&mdash;as it physically is. This fact makes color the most
+            relative medium in art. &ndash; <i>Josef Albers</i>
           </p>
-          <pre class="ma0">fg: <span data-name="fg"></span></pre>
-          <pre class="ma0">bg: <span data-name="bg"></span></pre>
+          <pre class="ma0">foreground: <span data-name="fg"></span></pre>
+          <pre class="ma0">background: <span data-name="bg"></span></pre>
         </div>
       </div>
     </template>
