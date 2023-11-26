@@ -1,6 +1,6 @@
 import { getContrast } from "../colors.js";
 
-class HTMLCcFormOutputItemElement extends HTMLElement {
+export class CcFormOutputItem extends HTMLElement {
   static get observedAttributes() {
     return ["data-foreground", "data-background"];
   }
@@ -43,4 +43,4 @@ class HTMLCcFormOutputItemElement extends HTMLElement {
   }
 }
 
-customElements.define("cc-form-output-item", HTMLCcFormOutputItemElement);
+customElements.define("cc-form-output-item", CcFormOutputItem);

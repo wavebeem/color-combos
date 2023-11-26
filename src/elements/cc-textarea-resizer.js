@@ -1,4 +1,4 @@
-class HTMLCcTextareaResizerElement extends HTMLElement {
+export class CcTextareaResizer extends HTMLElement {
   connectedCallback() {
     this.addEventListener("input", this.#onInput);
     for (const textarea of this.querySelectorAll("textarea")) {
@@ -21,4 +21,4 @@ class HTMLCcTextareaResizerElement extends HTMLElement {
   }
 }
 
-customElements.define("cc-textarea-resizer", HTMLCcTextareaResizerElement);
+customElements.define("cc-textarea-resizer", CcTextareaResizer);

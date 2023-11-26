@@ -1,6 +1,6 @@
 import { split } from "../util.js";
 
-class HTMLCcFormElement extends HTMLElement {
+export class CcForm extends HTMLElement {
   connectedCallback() {
     this.addEventListener("input", this.#update);
     this.addEventListener("checked", this.#update);
@@ -58,22 +58,17 @@ class HTMLCcFormElement extends HTMLElement {
   }
 
   #load() {
-    const {
-      fg = "",
-      bg = "",
-      group_by = "background",
-    } = parseQueryString(location.search);
+    const params = new URLSearchParams(location.search);
+    const fg = params.get("fg") || "";
+    const bg = params.get("bg") || "";
+    const groupBy = params.get("group_by") || "background";
     this.#inputFG.value = fg;
     this.#inputBG.value = bg;
     for (const radio of this.#groupByButtons) {
-      radio.checked = radio.value === group_by;
+      radio.checked = radio.value === groupBy;
     }
     this.#update();
   }
 }
 
-function parseQueryString(query) {
-  return Object.fromEntries(Array.from(new URLSearchParams(query)));
-}
-
-customElements.define("cc-form", HTMLCcFormElement);
+customElements.define("cc-form", CcForm);

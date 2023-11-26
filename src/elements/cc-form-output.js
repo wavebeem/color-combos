@@ -1,8 +1,9 @@
 // https://developers.google.com/web/fundamentals/web-components/best-practices
 
 import { split, getCombinations } from "../util.js";
+import { CcFormOutputItem } from "./cc-form-output-item.js";
 
-class HTMLCcFormOutputElement extends HTMLElement {
+export class CcFormOutput extends HTMLElement {
   static get observedAttributes() {
     return ["data-foregrounds", "data-backgrounds", "data-group-by"];
   }
@@ -48,7 +49,7 @@ class HTMLCcFormOutputElement extends HTMLElement {
       return;
     }
     for (const { fg, bg } of combos) {
-      const item = document.createElement("cc-form-output-item");
+      const item = new CcFormOutputItem();
       item.dataset.foreground = fg;
       item.dataset.background = bg;
       this.append(item);
@@ -56,4 +57,4 @@ class HTMLCcFormOutputElement extends HTMLElement {
   }
 }
 
-customElements.define("cc-form-output", HTMLCcFormOutputElement);
+customElements.define("cc-form-output", CcFormOutput);
