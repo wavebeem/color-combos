@@ -15,11 +15,11 @@ class HTMLCcFormElement extends HTMLElement {
   }
 
   get #inputFG() {
-    return this.querySelector("#fg");
+    return this.querySelector("[name='fg']");
   }
 
   get #inputBG() {
-    return this.querySelector("#bg");
+    return this.querySelector("[name='bg']");
   }
 
   get #formOutput() {
@@ -27,11 +27,11 @@ class HTMLCcFormElement extends HTMLElement {
   }
 
   get #groupByButtons() {
-    return this.querySelectorAll("[name=group-by]");
+    return this.querySelectorAll("[name='group-by']");
   }
 
   get #groupByValue() {
-    return this.querySelector("[name=group-by]:checked").value;
+    return this.querySelector("[name='group-by']:checked").value;
   }
 
   #preventDefault = (event) => {

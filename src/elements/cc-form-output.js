@@ -14,7 +14,7 @@ class HTMLCcFormOutputElement extends HTMLElement {
 
   get #templateEmpty() {
     return document
-      .querySelector("#preview-empty-template")
+      .querySelector("#template--cc-form-output")
       .content.cloneNode(true);
   }
 

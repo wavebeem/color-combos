@@ -20,4 +20,5 @@ class HTMLCcTextareaResizerElement extends HTMLElement {
     textarea.rows = rows;
   }
 }
+
 customElements.define("cc-textarea-resizer", HTMLCcTextareaResizerElement);

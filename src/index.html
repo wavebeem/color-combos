@@ -39,7 +39,7 @@
       </p>
 
       <cc-form>
-        <form action="" id="form">
+        <form action="">
           <label class="mb3 db">
             <div class="pb1">Foreground colors (one per line)</div>
             <cc-textarea-resizer>
@@ -48,7 +48,7 @@
                 spellcheck="false"
                 class="bit-input w-100 resize-none code"
                 type="text"
-                id="fg"
+                name="fg"
               ></textarea>
             </cc-textarea-resizer>
           </label>
@@ -60,7 +60,7 @@
                 spellcheck="false"
                 class="bit-input w-100 resize-none code"
                 type="text"
-                id="bg"
+                name="bg"
               ></textarea>
             </cc-textarea-resizer>
           </label>
@@ -132,19 +132,19 @@
 
     <aside>
       <h2 class="lh-title ma3 f4">Results</h2>
-      <div id="preview-container" class="bt b--bit-shadow">
+      <div class="bt b--bit-shadow">
         <cc-form-output></cc-form-output>
       </div>
     </aside>
 
-    <template id="preview-empty-template">
+    <template id="template--cc-form-output">
       <p class="mh3 bit-card">
         <span role="presentation" class="arrow-ul">&uarr;</span> Enter at least
         one foreground color and background color to continue
       </p>
     </template>
 
-    <template id="preview-template">
+    <template id="template--cc-form-output-item">
       <div class="flex flex-column pa3">
         <h3 class="mt0 mb2">
           <span data-name="contrast"></span> contrast ratio

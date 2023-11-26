@@ -11,7 +11,9 @@ class HTMLCcFormOutputItemElement extends HTMLElement {
   }
 
   get #template() {
-    return document.querySelector("#preview-template").content.cloneNode(true);
+    return document
+      .querySelector("#template--cc-form-output-item")
+      .content.cloneNode(true);
   }
 
   get foreground() {

@@ -20,6 +20,7 @@ const canvas = document.createElement("canvas");
 const ctx = canvas.getContext("2d");
 canvas.width = 1;
 canvas.height = 1;
+
 function colorToRGB({ foreground, background }) {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = background;
