@@ -52,9 +52,9 @@ export class CcForm extends HTMLElement {
 
     // Update output
     const formOutput = this.#formOutput;
-    formOutput.dataset.foregrounds = fgs;
-    formOutput.dataset.backgrounds = bgs;
-    formOutput.dataset.groupBy = groupBy;
+    formOutput.foregrounds = fgs;
+    formOutput.backgrounds = bgs;
+    formOutput.groupBy = groupBy;
   }
 
   #load() {

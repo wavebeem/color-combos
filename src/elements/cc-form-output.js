@@ -1,16 +1,25 @@
 // https://developers.google.com/web/fundamentals/web-components/best-practices
 
 import { split, getCombinations } from "../util.js";
+import { CcBaseElement } from "./cc-base-element.js";
 import { CcFormOutputItem } from "./cc-form-output-item.js";
 
-export class CcFormOutput extends HTMLElement {
-  static get observedAttributes() {
-    return ["data-foregrounds", "data-backgrounds", "data-group-by"];
-  }
-
-  attributeChangedCallback(name, _oldValue, newValue) {
-    this[name] = newValue;
-    this.#render();
+export class CcFormOutput extends CcBaseElement {
+  static get fields() {
+    return [
+      {
+        name: "foregrounds",
+        type: "string",
+      },
+      {
+        name: "backgrounds",
+        type: "string",
+      },
+      {
+        name: "group-by",
+        type: "string",
+      },
+    ];
   }
 
   get #templateEmpty() {
@@ -19,28 +28,12 @@ export class CcFormOutput extends HTMLElement {
       .content.cloneNode(true);
   }
 
-  get foregrounds() {
-    return this.dataset.foregrounds || "";
-  }
-
-  get backgrounds() {
-    return this.dataset.backgrounds || "";
-  }
-
-  get groupBy() {
-    return this.dataset.groupBy || "background";
-  }
-
-  connectedCallback() {
-    this.#render();
-  }
-
-  #render() {
+  render() {
     const combos = Array.from(
       getCombinations({
-        foregrounds: split(this.foregrounds),
-        backgrounds: split(this.backgrounds),
-        groupBy: this.groupBy,
+        foregrounds: split(this.foregrounds ?? ""),
+        backgrounds: split(this.backgrounds ?? ""),
+        groupBy: this.groupBy ?? "background",
       })
     );
     this.innerHTML = "";
