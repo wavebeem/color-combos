@@ -69,3 +69,7 @@ cc-form-output-item {
 .arrow-ul {
   font-weight: bold;
 }
+
+.bit-table:where(#wcag-levels) tr > :where(:nth-child(2), :nth-child(3)) {
+  text-align: right;
+}
