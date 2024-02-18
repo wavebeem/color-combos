@@ -30,7 +30,7 @@ cc-form-output-item {
   }
 
   main {
-    border-right: 1px solid var(--bit-color-shadow);
+    border-right: 1px solid var(--candy-color-shadow);
   }
 
   main,
@@ -44,22 +44,22 @@ cc-form-output-item {
   }
 }
 
-.bit-auto,
-.bit-root {
-  --bit-color-fg: #ccc;
-  --bit-color-accent: #fff;
-  --bit-color-shadow: #555;
-  --bit-color-bg: #333;
-  --bit-border-radius: 4px;
+.candy-auto,
+.candy-root {
+  --candy-color-fg: #ccc;
+  --candy-color-accent: #fff;
+  --candy-color-shadow: #555;
+  --candy-color-bg: #333;
+  --candy-border-radius: 4px;
   color-scheme: dark;
 }
 
 .round {
-  border-radius: var(--bit-border-radius);
+  border-radius: var(--candy-border-radius);
 }
 
-.b--bit-shadow {
-  border-color: var(--bit-color-shadow);
+.b--candy-shadow {
+  border-color: var(--candy-color-shadow);
 }
 
 .resize-none {
@@ -70,6 +70,6 @@ cc-form-output-item {
   font-weight: bold;
 }
 
-.bit-table:where(#wcag-levels) tr > :where(:nth-child(2), :nth-child(3)) {
+.candy-table:where(#wcag-levels) tr > :where(:nth-child(2), :nth-child(3)) {
   text-align: right;
 }
