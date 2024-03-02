@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="bit-root bit-scrollbar sans-serif min-vh-100">
+<html lang="en" class="candy-root candy-scrollbar sans-serif min-vh-100">
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -11,7 +11,7 @@
       "
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/lib/2bit-ui.css" />
+    <link rel="stylesheet" href="/lib/candy.css" />
     <link rel="stylesheet" href="/lib/tachyons.css" />
     <link rel="stylesheet" href="/style.css" />
     <script defer src="/lib/tinycolor2.js"></script>
@@ -33,7 +33,7 @@
       <h1 class="lh-title ma0 f3">Color Combos</h1>
       <p class="lh-title mt0 f5">CSS color contrast checker</p>
 
-      <p class="bit-card">
+      <p class="candy-card">
         Type CSS color values and see all their combinations and color contrast
         values. Supports all CSS color formats supported by your browser.
       </p>
@@ -46,7 +46,7 @@
               <textarea
                 rows="4"
                 spellcheck="false"
-                class="bit-input w-100 resize-none code"
+                class="candy-input w-100 resize-none code"
                 type="text"
                 name="fg"
               ></textarea>
@@ -58,26 +58,26 @@
               <textarea
                 rows="4"
                 spellcheck="false"
-                class="bit-input w-100 resize-none code"
+                class="candy-input w-100 resize-none code"
                 type="text"
                 name="bg"
               ></textarea>
             </cc-textarea-resizer>
           </label>
-          <fieldset class="bit-fieldset">
-            <legend class="bit-legend">Grouping</legend>
-            <label class="bit-field">
+          <fieldset class="candy-fieldset">
+            <legend class="candy-legend">Grouping</legend>
+            <label class="candy-choice">
               <input
-                class="bit-radio"
+                class="candy-radio"
                 type="radio"
                 name="group-by"
                 value="foreground"
               />
               <span>Group by foreground</span>
             </label>
-            <label class="bit-field">
+            <label class="candy-choice">
               <input
-                class="bit-radio"
+                class="candy-radio"
                 type="radio"
                 name="group-by"
                 value="background"
@@ -89,8 +89,8 @@
         </form>
       </cc-form>
 
-      <div class="bit-box mt3">
-        <table class="bit-table w-100" id="wcag-levels">
+      <div class="candy-box mt3">
+        <table class="candy-table w-100" id="wcag-levels">
           <thead>
             <tr>
               <th>WCAG Level</th>
@@ -120,25 +120,25 @@
         </table>
       </div>
 
-      <p class="bit-card">
+      <p class="candy-card">
         &copy; 2023
-        <a href="https://www.wavebeem.com" class="bit-link">Sage Fennel</a>
+        <a href="https://www.wavebeem.com" class="candy-link">Sage Fennel</a>
         &bull; Source on
-        <a href="https://github.com/wavebeem/color-combos" class="bit-link"
+        <a href="https://github.com/wavebeem/color-combos" class="candy-link"
           >GitHub</a
         >
       </p>
     </main>
 
     <aside>
-      <h2 class="lh-title ma3 f4">Results</h2>
-      <div class="bt b--bit-shadow">
+      <h2 class="lh-title ma0 pa3 f4">Results</h2>
+      <div class="bt b--candy-shadow">
         <cc-form-output></cc-form-output>
       </div>
     </aside>
 
     <template id="template--cc-form-output">
-      <p class="mh3 bit-card">
+      <p class="mh3 candy-card">
         <span role="presentation" class="arrow-ul">&uarr;</span> Enter at least
         one foreground color and background color to continue
       </p>
