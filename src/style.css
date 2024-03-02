@@ -44,14 +44,21 @@ cc-form-output-item {
   }
 }
 
-.candy-auto,
 .candy-root {
-  --candy-color-fg: #ccc;
-  --candy-color-accent: #fff;
-  --candy-color-shadow: #555;
-  --candy-color-bg: #333;
-  --candy-border-radius: 4px;
-  color-scheme: dark;
+  --candy-color-background1: hsl(0 0% 10%);
+  --candy-color-background2: hsl(0 0% 26%);
+  --candy-color-background3: hsl(0 0% 22%);
+  --candy-color-background4: hsl(0 0% 20%);
+  --candy-color-text1: hsl(0 0% 95%);
+  --candy-color-text2: hsl(0 0% 75%);
+  --candy-color-border1: hsl(0 0% 60%);
+  --candy-color-border2: hsl(0 0% 40%);
+  --candy-color-border3: hsl(0 0% 30%);
+  --candy-color-accent-background1: hsl(0 0% 95%);
+  --candy-color-accent-background2: hsl(0 0% 85%);
+  --candy-color-accent-border1: hsl(0 0% 100%);
+  --candy-color-accent-text1: hsl(0 0% 15%);
+  --candy-color-shadow1: hsl(0 0% 5% / 20%);
 }
 
 .round {
