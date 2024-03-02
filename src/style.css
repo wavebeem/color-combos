@@ -1,5 +1,6 @@
 body {
   display: grid;
+  color-scheme: dark;
 }
 
 * {
@@ -30,7 +31,7 @@ cc-form-output-item {
   }
 
   main {
-    border-right: 1px solid var(--candy-color-shadow);
+    border-right: 1px solid var(--candy-color-border3);
   }
 
   main,
