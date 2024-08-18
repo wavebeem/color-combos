@@ -1,4 +1,5 @@
-import { getContrast } from "../colors.js";
+import { toHex } from "../contrast.js";
+import { getContrast } from "../contrast.js";
 
 export class CcFormOutputItem extends HTMLElement {
   static get observedAttributes() {
@@ -31,15 +32,20 @@ export class CcFormOutputItem extends HTMLElement {
   #render() {
     this.innerHTML = "";
     const { foreground, background } = this;
+    if (!(foreground && background)) {
+      return;
+    }
+    const fg = toHex(foreground);
+    const bg = toHex(background);
     this.append(this.#template);
-    this.style.setProperty("--foreground", foreground);
-    this.style.setProperty("--background", background);
-    this.querySelector("[data-name=fg]").textContent = foreground;
-    this.querySelector("[data-name=bg]").textContent = background;
+    this.style.setProperty("--foreground", fg);
+    this.style.setProperty("--background", bg);
+    this.querySelector("[data-name=fg]").textContent = fg;
+    this.querySelector("[data-name=bg]").textContent = bg;
     this.querySelector("[data-name=contrast]").textContent = getContrast({
-      foreground,
-      background,
-    }).toFixed(1);
+      background: bg,
+      foreground: fg,
+    }).toFixed(2);
   }
 }
 

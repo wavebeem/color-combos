@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/lib/candy.css" />
     <link rel="stylesheet" href="/lib/tachyons.css" />
     <link rel="stylesheet" href="/style.css" />
-    <script defer src="/lib/tinycolor2.js"></script>
+    <script type="module" src="/lib/color.js"></script>
     <script type="module" src="/elements/cc-form.js"></script>
     <script type="module" src="/elements/cc-form-output.js"></script>
     <script type="module" src="/elements/cc-form-output-item.js"></script>
@@ -35,7 +35,8 @@
 
       <p class="candy-card">
         Type CSS color values and see all their combinations and color contrast
-        values. Supports all CSS color formats supported by your browser.
+        values. Supports all CSS color formats understood by
+        <a class="candy-link" href="https://colorjs.io/">Color.js</a>. Colors are clamped to the sRGB gamut, contrast is computed using WCAG 2.1, and transparency is supported.
       </p>
 
       <cc-form>
@@ -121,7 +122,7 @@
       </div>
 
       <p class="candy-card">
-        &copy; 2023
+        &copy; 2024
         <a href="https://www.wavebeem.com" class="candy-link">Sage Fennel</a>
         &bull; Source on
         <a href="https://github.com/wavebeem/color-combos" class="candy-link"
